@@ -1,18 +1,36 @@
-import {Text, View, TouchableOpacity, Image } from 'react-native';
+import {Text, TouchableOpacity, useColorScheme } from 'react-native';
 import { Link } from 'expo-router';
 import React from 'react';
 import Person from '../assets/image.jpg';
+import { Colors } from '../constants/Colors';
+import ThemedView from '../components/ThemedView';
+import ThemedLogo from '../components/ThemedLogo';
+import Spacer from '../components/Spacer';
+import ThemedText from '../components/ThemedText';
 
 export default function Home () {
+
+  const colorScheme = useColorScheme() ?? 'light';
+  const theme = Colors[colorScheme]; 
+
   return (
-    <View className='flex-1 items-center justify-center' >
+    <ThemedView style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }} >
 
-      <Image className='w-4/6 h-2/6 rounded-md' source={Person}></Image>
+      <Text className='text-2xl'>Dummy Text</Text>
 
-      <Text className='text-3xl font-bold'>Let us get our shit together</Text>
-      <Text className='text-xl  m-4'>This is awesome</Text>
+      {/* height prop can be overwritten */}
+      <Spacer height={50}/>
 
-      <TouchableOpacity className='bg-gray-300 p-5 rounded-xl mt-5'
+      {/* Custom Image using the ThemedLogo Component */}
+      <ThemedLogo />
+
+      {/* Custom Text with the ThemedText Component */}
+      <ThemedText title >Let us get our shit together</ThemedText>
+
+      {/*Custom prop to add space */}
+      <Spacer/> 
+      
+      <TouchableOpacity className='bg-gray-300 p-5 rounded-xl'
         onPress={() => {
           console.log("Button pressed")
         }}
@@ -21,8 +39,12 @@ export default function Home () {
         
       </TouchableOpacity>
 
-      <Link href='/about' className='mt-6'>Home page</Link>
-    </View>
+      <Spacer/>
+
+      <Link href='/about' >
+        <ThemedText>Home page</ThemedText>
+      </Link>
+    </ThemedView>
 
     
   )
