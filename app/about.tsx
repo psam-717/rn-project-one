@@ -1,14 +1,20 @@
-import { View, Text } from 'react-native'
+import { Text } from 'react-native'
 import React from 'react'
 import { Link } from 'expo-router'
+import ThemedView from '../components/ThemedView'
+import ThemedText from '../components/ThemedText'
 
 const home = () => {
   return (
-    <View className='flex-1 justify-center items-center'>
-      <Text className='font-semibold text-2xl'>Welcome to the about page</Text>
+    <ThemedView style={[{flex: 1, justifyContent: 'center', alignItems: 'center'}]}>
+      <ThemedText title>Welcome to the about page</ThemedText>
+
+      <Link href='profile' >
+        <ThemedText>Profile pages</ThemedText>
+      </Link>
 
        
-    </View>
+    </ThemedView>
 
 
   )
