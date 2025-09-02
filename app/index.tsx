@@ -1,5 +1,5 @@
-import {Text, TouchableOpacity, useColorScheme } from 'react-native';
-import { Link } from 'expo-router';
+import {Pressable, Text, TouchableOpacity, useColorScheme, View } from 'react-native';
+import { Link, router } from 'expo-router';
 import React from 'react';
 import Person from '../assets/image.jpg';
 import { Colors } from '../constants/Colors';
@@ -18,31 +18,47 @@ export default function Home () {
 
       <Text className='text-2xl'>Dummy Text</Text>
 
+      {/* Custom Text with the ThemedText Component */}
+      <ThemedText title >Let us get our shit together</ThemedText>
+
       {/* height prop can be overwritten */}
-      <Spacer height={50}/>
+      <Spacer height={30}/>
 
       {/* Custom Image using the ThemedLogo Component */}
       <ThemedLogo />
 
-      {/* Custom Text with the ThemedText Component */}
-      <ThemedText title >Let us get our shit together</ThemedText>
+
 
       {/*Custom prop to add space */}
       <Spacer/> 
-      
-      <TouchableOpacity className='bg-gray-300 p-5 rounded-xl'
-        onPress={() => {
-          console.log("Button pressed")
-        }}
-      >
-        <Text>Pressable</Text>
+
+      <View className='flex-row justify-evenly items-center  w-full'>
         
-      </TouchableOpacity>
+        <Pressable className='bg-gray-300 p-5 rounded-xl active:bg-neutral-300'
+          onPress={() => router.push('profile')}
+        >
+          <ThemedText style={{color: 'black'}}>Profile page</ThemedText>
+        </Pressable>
+
+        <TouchableOpacity className='bg-gray-300 p-5 rounded-xl'
+          onPress={() => router.push('auth/login')}
+        >
+          <ThemedText style={{color: 'black'}}>Login page</ThemedText>
+        </TouchableOpacity>
+        
+
+        <TouchableOpacity className='bg-gray-300 p-5 rounded-xl'>
+          <Text>Sign up button</Text>
+        </TouchableOpacity>
+
+      </View>
+
+
 
       <Spacer/>
 
       <Link href='/about' >
-        <ThemedText>Home page</ThemedText>
+        <ThemedText>About page</ThemedText>
       </Link>
     </ThemedView>
 
