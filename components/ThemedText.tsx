@@ -14,7 +14,7 @@ const ThemedText: React.FC<ThemedTextProps> = ({ style, title = false, children 
 
     const textColor = title ? theme.title : theme.text;
     
-    // set default styles for text (they can be overwritten thought)
+    // set default styles for text (they can be overwritten though)
     const defaultStyles: TextStyle = {
         color: textColor,
         fontSize: title ? 24 : 18,
