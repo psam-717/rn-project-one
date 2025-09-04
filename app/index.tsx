@@ -34,12 +34,15 @@ export default function Home () {
 
       <View className='flex-row justify-evenly items-center  w-full'>
         
+        {/* Profile page button */}
         <Pressable className='bg-gray-300 p-5 rounded-xl active:bg-neutral-300'
           onPress={() => router.push('profile')}
         >
           <ThemedText style={{color: 'black'}}>Profile page</ThemedText>
         </Pressable>
 
+
+        {/* login button  */}
         <TouchableOpacity className='bg-gray-300 p-5 rounded-xl'
           onPress={() => router.push('auth/login')}
         >
