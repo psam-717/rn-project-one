@@ -19,8 +19,8 @@ export default function RootLayout() {
             <Stack.Screen name="index" options={{ title: 'Home page' }} />
             <Stack.Screen name="about" options={{ title: 'About page' }} />
             <Stack.Screen name="profile" options={{ title: 'Profile page' }} />
-            {/* ensure that the directory of the page is taken into consideration */}
-            <Stack.Screen name="auth/login" options={{ title: 'Login' }} /> 
+            {/* The auth folder containing the */}
+            <Stack.Screen name='auth' options={{headerShown: false}}/>
         </Stack>
     );
 }
